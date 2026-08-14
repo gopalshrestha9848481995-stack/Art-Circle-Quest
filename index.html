@@ -1,23 +1,24 @@
-l
 <!DOCTYPE html>
 <html><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0, viewport-fit=cover">
 <title>Art Circle Quest</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
-html,body{margin:0;padding:0;height:100%;width:100%;overflow:hidden;background:#0a0a0a;}
+html,body{margin:0;padding:0;height:100%;width:100%;overflow:hidden;background:#0a0a0a;font-family:'Inter',sans-serif;}
 .app-sandbox{position:relative;width:100%;height:100vh;height:100dvh;overflow:hidden;background:#0a0a0a;}
 .app-sandbox iframe{position:absolute;left:0;width:100%;border:none;background:#0a0a0a;top:-32px;height:calc(100% + 32px);}
-.loader{position:fixed;inset:0;background:#0a0a0a;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.loader{position:fixed;inset:0;background:#0a0a0a;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity 0.5s;}
 .spinner{width:44px;height:44px;border:3px solid rgba(255,255,255,0.1);border-top-color:#3b82f6;border-radius:50%;animation:spin 1s linear infinite;}
 @keyframes spin{to{transform:rotate(360deg)}}
 </style>
 </head>
 <body>
-<div class="loader" id="loader"><div class="spinner"></div></div>
-<div class="app-sandbox"><iframe id="appFrame" src="https://script.google.com/macros/s/AKfycbwpRhr6nB-V8UYp5E2phgQMethyc8L5xf61q_9kO6kZzpnHnrmObMOXPSKUD5nzKwoo/exec" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe></div>
+<div class="loader" id="loader"><div class="spinner"></div><div style="color:#a3a3a3;font-size:12px;margin-top:14px;letter-spacing:1px;">LOADING ART CIRCLE QUEST...</div></div>
+<div class="app-sandbox"><iframe id="appFrame" src="https://script.google.com/macros/s/AKfycbwpRhr6nB-V8UYp5E2phgQMethyc8L5xf61q_9kO6kZzpnHnrmObMOXPSKUD5nzKwoo/exec" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation" allow="camera; microphone; clipboard-read; clipboard-write"></iframe></div>
 <script>
 document.getElementById('appFrame').addEventListener('load', function(){var l=document.getElementById('loader'); l.style.opacity='0'; setTimeout(function(){l.remove();},600);});
+setTimeout(function(){var l=document.getElementById('loader'); if(l){l.style.opacity='0'; setTimeout(function(){l.remove();},600);}},8000);
 </script>
 </body>
 </html>
